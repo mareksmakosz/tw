@@ -1,0 +1,94 @@
+<div class="row">
+	<div class="col-sm-12 calc-container">
+		<h3 class="text-center">Calculate and <br>create a transfer</h3>
+		<form class="form-horizontal" role="form">
+		  
+		  <div class="form-group">
+		    <label for="you-pay" class="col-xs-4 control-label">You pay</label>
+		    <div class="col-xs-4 no-padding">
+		      <input class="form-control" id="you-pay" ng-model="youPay" ng-change="calcFromTo()">
+		    </div>
+		    <div class="col-xs-4">
+			    <div class="button custom-select">
+			    	<select ng-init="youPayCurrency = currencies[0]" ng-model="youPayCurrency" name="" id="" ng-options="currency.code for currency in currencies">
+							<option value=""></option>
+						</select>
+					</div>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <label for="you-get" class="col-xs-4 control-label">You get</label>
+		    <div class="col-xs-4 no-padding">
+		      <input class="form-control" id="you-get" ng-model="youGet" ng-change="calcToFrom()">
+		    </div>
+		    <div class="col-xs-4">
+			    <div class="button custom-select">
+			    	<select ng-init="youGetCurrency = currencies[1]" ng-model="youGetCurrency" name="" id="" ng-options="currency.code for currency in currencies">
+							<option value=""></option>
+						</select>
+					</div>
+		    </div>
+		  </div>
+
+		  <div class="form-group">
+		    <div class="col-xs-12">
+		      <div class="checkbox">
+		        <label>
+		          <input type="checkbox"> Receive fixed amount
+		        </label>
+	          <span tooltip class="round light-grey-bg" data-toggle="tooltip" data-placement="top" title="Some more info?">?</span>
+		      </div>
+		    </div>
+		  </div>
+
+		  <hr>
+
+		  <div class="form-group">
+		    <label for="you-get" class="col-xs-8 control-label">Priority payment?
+	          <span tooltip class="round light-grey-bg" data-toggle="tooltip" data-placement="top" title="Some more info?">?</span>
+        </label>
+		    <div class="col-xs-4">
+			    <div class="button custom-select">
+			    	<!-- <select ng-model="" name="" id="" ng-options=""> -->
+			    	<select name="" id="">
+							<option value="0">No</option>
+							<option value="1">Yes</option>
+						</select>
+					</div>
+		    </div>
+		  </div>
+		  <p>Payment will be received no later than:</p>
+		  <strong>Mon 25th March</strong>
+
+		  <hr>
+
+		  <p class="left">Deposit <span tooltip class="round dark-grey-bg" data-toggle="tooltip" data-placement="top" title="Some more info?">+</span></p>
+
+		  <p class="right"><strong>{{youPayCurrency.symbol}}  {{youPay | currency:"":2}}</strong></p>
+		  <div class="clearfix"></div>
+
+		  <p class="left">Estimated exchange rate <span tooltip class="round dark-grey-bg" data-toggle="tooltip" data-placement="top" title="Some more info?">+</span></p>
+
+		  <p class="right"><strong>1.2110</strong></p>
+			<div class="clearfix"></div>
+
+		  <p class="left">You get (estimated)</p>
+		  <h4 class="right"><strong>{{youGetCurrency.code}} {{youGet | currency:"":2}}</strong></h4>
+		  <div class="clearfix"></div>
+
+		  <div class="form-group">
+		    <div class="col-xs-12">
+		      <button type="submit" class="btn btn-block btn-success calc-submit"><strong>Create a transfer</strong></button>
+		    </div>
+		  </div>
+
+		</form>
+		<hr>
+		<div class="text-center">
+			<h3>After creating a transfer</h3>
+			<p><strong>Make a bank transfer</strong> in your currency to the TransferWise bank account.</p>
+			<p><strong>We make the conversion</strong> and pay the recipient in the required currency.</p>
+		</div>
+	</div>
+</div>
